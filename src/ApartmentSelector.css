@@ -1,0 +1,142 @@
+.apartment-selector {
+  padding: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.apartment-selector.dimmed {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.apartment-selector.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.apartment-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.back-button {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background: #5a6268;
+}
+
+.apartment-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.apartment-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+}
+
+.apartment-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+}
+
+.apartment-card:hover,
+.apartment-card.hovered,
+.apartment-card:focus {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border-color: #667eea;
+  z-index: 10;
+  position: relative;
+  outline: none;
+}
+
+.apartment-thumbnail {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apartment-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.apartment-card:hover .apartment-thumbnail img,
+.apartment-card.hovered .apartment-thumbnail img {
+  transform: scale(1.1);
+}
+
+.apartment-info {
+  padding: 1.5rem;
+}
+
+.apartment-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.apartment-area {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+  color: #667eea;
+  font-weight: 500;
+}
+
+.apartment-rooms {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .apartment-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .apartment-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .apartment-card:hover,
+  .apartment-card.hovered {
+    transform: scale(1.02);
+  }
+}
+
+@media (hover: none) {
+  .apartment-card:hover {
+    transform: none;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .apartment-card:active {
+    transform: scale(0.98);
+  }
+}
