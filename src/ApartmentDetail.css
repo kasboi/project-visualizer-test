@@ -51,6 +51,7 @@
   height: auto;
   min-height: 400px;
   object-fit: cover;
+  display: block;
 }
 
 .detail-info {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ApartmentSelector.css";
+import thumbnail from "./assets/apartment-small.jpg";
 
 interface Apartment {
   id: number;
@@ -15,28 +16,28 @@ const apartments: Apartment[] = [
     type: "1BHK",
     area: 650,
     rooms: 1,
-    thumbnail: "https://via.placeholder.com/200x150/667eea/ffffff?text=1BHK+Layout",
+    thumbnail: thumbnail,
   },
   {
     id: 2,
     type: "2BHK",
     area: 950,
     rooms: 2,
-    thumbnail: "https://via.placeholder.com/200x150/74b9ff/ffffff?text=2BHK+Layout",
+    thumbnail: thumbnail,
   },
   {
     id: 3,
     type: "2BHK Premium",
     area: 1100,
     rooms: 2,
-    thumbnail: "https://via.placeholder.com/200x150/a29bfe/ffffff?text=2BHK+Premium",
+    thumbnail: thumbnail,
   },
   {
     id: 4,
     type: "3BHK",
     area: 1350,
     rooms: 3,
-    thumbnail: "https://via.placeholder.com/200x150/6c5ce7/ffffff?text=3BHK+Layout",
+    thumbnail: thumbnail,
   },
 ];
 
@@ -66,7 +67,11 @@ const ApartmentSelector: React.FC<ApartmentSelectorProps> = ({
   };
 
   return (
-    <div className={`apartment-selector ${hoveredId ? "dimmed" : ""} ${isLoading ? "loading" : ""}`}>
+    <div
+      className={`apartment-selector ${hoveredId ? "dimmed" : ""} ${
+        isLoading ? "loading" : ""
+      }`}
+    >
       <div className="apartment-header">
         <button className="back-button" onClick={onBack}>
           ← Back to Floors
@@ -79,12 +84,14 @@ const ApartmentSelector: React.FC<ApartmentSelectorProps> = ({
         {apartments.map((apartment) => (
           <div
             key={apartment.id}
-            className={`apartment-card ${hoveredId === apartment.id ? 'hovered' : ''}`}
+            className={`apartment-card ${
+              hoveredId === apartment.id ? "hovered" : ""
+            }`}
             onClick={() => handleApartmentClick(apartment)}
             onMouseEnter={() => setHoveredId(apartment.id)}
             onMouseLeave={() => setHoveredId(null)}
             onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
+              if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
                 handleApartmentClick(apartment);
               }

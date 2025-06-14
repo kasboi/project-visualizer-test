@@ -46,6 +46,7 @@ function App() {
     return breadcrumbs;
   };
 
+  // Handles the rendering of the current view based on the state
   const renderCurrentView = () => {
     switch (currentView) {
       case "towers":
